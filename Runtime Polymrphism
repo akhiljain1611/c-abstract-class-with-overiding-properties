@@ -1,0 +1,81 @@
+ abstract class figure
+    {
+
+        protected int width;
+        public figure(int W)
+        {
+            width = W;
+           // height = H;
+        }
+
+        public abstract int getarea();
+        public abstract int getperm();
+
+    }
+   class Rectangle:figure
+    {
+        int  h;
+        public Rectangle(int w,int h):base(w)
+        {
+            //this.w = w;
+            this.h = h;
+        }
+        public override int getarea()
+        {
+            return (width * this.h);
+        }
+
+        public override int getperm()
+        {
+            return (2 * width * this.h);
+        }
+    }
+     class Circle:figure
+    {
+       // int r;
+        public Circle(int w) :base(w)
+        {
+           
+        }
+        public override int getperm()
+        {
+            return (2 * width * width);
+        }
+        public override int getarea()
+        {
+            return width * width;
+        }
+
+
+    }
+    
+     class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter You Choice");
+            Console.WriteLine("1.Rectangle 2.Square");
+            int ch = int.Parse(Console.ReadLine());
+            figure f;
+
+            switch (ch)
+            {
+                case 1:
+                    f = new Rectangle(10, 20);
+                    Console.WriteLine(f.getarea());
+                    Console.WriteLine(f.getperm());
+                    break;
+
+                case 2:
+                    f = new Circle(20);
+                    Console.WriteLine(f.getarea());
+                    Console.WriteLine(f.getperm());
+                    break;
+
+            }
+
+                     
+            Console.ReadKey();
+
+        }
+    }
