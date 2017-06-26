@@ -1,0 +1,190 @@
+abstract  class Customer
+    {
+
+        int _Cid, _Bal;
+        string _Cname;
+        bool _Status;
+
+        public Customer(int _Cid, int _Bal, string _Cname, bool _Status)
+        {
+            this._Cid = _Cid;
+            this._Bal = _Bal;
+            this._Cname = _Cname;
+            this._Status = _Status;
+        }
+
+        public abstract int Cid
+        {
+            get;
+            set;
+            // set { _Cid = value; }
+        }
+        public abstract string Cname
+        {
+
+            get;
+            set;
+        }
+        public abstract int Bal
+            {
+            get;
+            set;
+            }
+        public abstract bool status
+        {
+            get;
+            set;
+        }
+        public abstract void display();
+
+      
+    }
+    
+    class OdinaryCustomer:Customer
+    {
+        int O_CID, O_Bal;
+        string O_Cname;
+        bool O_status;
+
+        public OdinaryCustomer(int O_CID,int O_Bal,string O_Cname,bool O_status):base(O_CID, O_Bal, O_Cname, O_status)
+        {
+            this.O_CID = O_CID;
+            this.O_Bal = O_Bal;
+            this.O_Cname = O_Cname;
+            this.O_status = O_status;
+
+        }
+        public override int Bal
+        {
+            get
+            {
+                if(O_Bal>=500)
+                {
+                    Console.WriteLine(" Odinary Customer your balance is less than 500 please do something..");
+                }
+                return O_Bal;
+            }
+
+            set
+            {
+                O_Bal = value;
+            }
+        }
+        public override int Cid
+        {
+            get
+            {
+                return O_CID;
+            }
+            set {  //dont want to chage the ID that's why no code in SET.
+            }
+          
+        }
+        public override string Cname
+        {
+            get
+            {
+                return O_Cname;
+            }
+
+            set
+            {
+                if (O_Bal >= 500)
+                {
+                    O_Cname = value;
+                }
+                else {
+                    Console.WriteLine("your balance is less than 500  name can't be Changed");
+                }
+            }
+        }
+        public override bool status
+        {
+            get
+            {
+                return O_status;
+            }
+
+            set
+            {
+                O_status = value;
+            }
+        }
+        public override void display()
+
+        {
+            Console.WriteLine("id={0} and name={1},Balance={2},",O_CID,O_Cname,O_Bal);
+        }
+
+ }
+ 
+ class SpecialCustimer:Customer
+    {
+        int _SCid, _SBal;
+        String _SCName;
+        bool _Sstatus;
+        public SpecialCustimer(int _SCid,int _SBal,String _SCName,bool _Sstatus):base(_SCid, _SBal, _SCName, _Sstatus)
+        {
+            this._SCid = _SCid;
+            this._SBal = _SBal;
+            this._SCName = _SCName;
+            this._Sstatus = _Sstatus;
+        }
+        public override int Cid
+        {
+            get
+            {
+                return _SCid;
+            }
+
+            set
+            {
+                //dont want to chage the ID that's why no code in SET.
+            }
+        }
+
+        public override int Bal
+        {
+            get
+            {
+                return _SBal;
+            }
+
+            set
+            {
+                _SBal = value;
+            }
+        }
+
+        public override string Cname
+        {
+            get
+            {
+                return _SCName;
+            }
+
+            set
+            {
+                _SCName = value;
+            }
+        }
+        public override bool status
+        {
+            get
+            {
+                return _Sstatus;
+            }
+
+            set
+            {
+                _Sstatus = value;
+            }
+        }
+        public override void display()
+
+        {
+            Console.WriteLine("id={0} and name={1},Balance={2},", _SCid, _SCName, _SBal);
+        }
+
+
+    }
