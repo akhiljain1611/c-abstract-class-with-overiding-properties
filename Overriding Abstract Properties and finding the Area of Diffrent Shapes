@@ -1,0 +1,98 @@
+ abstract class Figures
+    {
+        int Width;
+        int _cs;
+        public Figures(int Width)
+        {
+            CS = Width;
+        }
+
+        public abstract int getarea
+        {
+            get;
+            
+        }
+        public abstract int getperm
+        {
+            get;
+            
+        }
+        public abstract int CS
+        {
+            set;
+        }
+        public abstract void display();
+  }
+  class Square:Figures
+    {
+        int _CsS;
+        public Square(int c):base(c)
+        {
+        }
+
+        public override int getarea
+        {
+            get
+            {
+                return (_CsS* _CsS);
+            }
+        }
+        public override int getperm
+        {
+            get
+            {
+                return (2*_CsS * _CsS);
+            }
+
+        }
+        public override int CS
+        {
+            set
+            {
+                _CsS = value;
+            }
+        }
+        public override void display()
+        {
+            Console.WriteLine("area={0} and perimeter={1}", getarea, getperm);
+        }
+    }
+     class Rectangle : Figures
+    {
+        int H;
+        int _csr;
+        public Rectangle(int H,int W):base(W)
+        {
+            this.H = H;
+        }
+
+        public override int getarea
+        {
+            get
+            {
+                return H* _csr;
+            }
+
+           
+        }
+        public override int getperm
+        {
+            get
+            {
+                return 2 *H* _csr;
+            }
+
+           
+        }
+        public override int CS
+        {
+            set
+            {
+                _csr = value;
+            }
+        }
+        public override void display()
+        {
+            Console.WriteLine("area={0} and perimeter={1}", getarea, getperm);
+        }
+    }
