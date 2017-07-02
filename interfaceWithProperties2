@@ -1,0 +1,149 @@
+ interface Icustomer
+    {
+        string Name
+        {
+            get;
+            set;
+        }
+        int Amount
+        {
+            get;
+            set;
+        }
+        int CID
+        {
+            get;
+        }
+    }
+     abstract  class Customer : Icustomer
+    {
+        string _name;
+        int _cid, _amount;
+
+       public abstract string Name
+        {
+            get;
+            set;
+        }
+       public abstract int Amount
+        {
+            get;
+            set;
+        }
+        public abstract int CID
+        {
+            get;
+        }
+
+        public Customer(int _cid, int _amount,string _name)
+        {
+            this._cid = _cid;
+            this._name = _name;
+            this._amount = _amount;
+        }
+        public abstract void display();
+    }
+     class OdinaryCustomer:Customer
+    {
+        int _Ocid, _Oamount;
+        string _Oname;
+        public override string Name
+        {
+            get
+            {
+                return _Oname;
+            }
+
+            set
+            {
+                if (_Oamount > 500)
+                {
+                    _Oname = value;
+                }
+                else
+                {
+                    Console.WriteLine("name can't be changed as amount is less than 500");
+                }
+            }
+        }
+
+        public override int Amount
+        {
+            get
+            {
+                return _Oamount;
+            }
+
+            set
+            {
+                _Oamount = value;
+            }
+        }
+        public override int CID
+        {
+            get
+            {
+                return _Ocid;
+            }
+        }
+
+        public OdinaryCustomer(int _Ocid,int _Oamount,string _Oname) :base(_Ocid, _Oamount, _Oname)
+        {
+            this._Ocid = _Ocid;
+            this._Oname = _Oname;
+            this._Oamount = _Oamount;
+
+        }
+        public override void display()
+        {
+            Console.WriteLine(" odinary Customer id={0},name={1},amount={2}",CID,Name,Amount);
+        }
+
+    }
+     class SpecialCusotmer:Customer
+    {
+        int _Scid, _Samount;
+        string _SCname;
+        public override string Name
+        {
+            get
+            {
+                return _SCname;
+            }
+
+            set
+            {
+                _SCname = value;
+            }
+        }
+        public override int Amount
+        {
+            get
+            {
+                return _Samount;
+            }
+
+            set
+            {
+                _Samount = value;
+            }
+        }
+        public override int CID
+        {
+            get
+            {
+                return _Scid;
+            }
+        }
+        public SpecialCusotmer(int _Scid,int _Samount,string _SCname):base(_Scid, _Samount, _SCname)
+        {
+            this._Scid = _Scid;
+            this._SCname = _SCname;
+            this._Samount = _Samount;
+
+        }
+        public override void display()
+        {
+            Console.WriteLine("Special Customer id={0},name={1},amount={2}", CID, Name, Amount);
+        }
+}
